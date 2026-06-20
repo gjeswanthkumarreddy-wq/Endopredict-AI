@@ -1,0 +1,198 @@
+/* =========================
+   GLOBAL VARIABLES
+========================= */
+
+:root {
+    --blue: #2563eb;
+    --dark-blue: #1d4ed8;
+    --text: #1f2937;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    color: var(--blue) !important;
+    font-weight: bold;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    background: white;
+}
+
+.sidebar a,
+.sidebar li,
+.sidebar ul li {
+    color: var(--blue) !important;
+    text-decoration: none;
+}
+
+.sidebar ul li:hover {
+    background: #e8f0ff !important;
+    color: var(--blue) !important;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1,
+.main-title,
+.page-title,
+.content h1 {
+    color: var(--blue) !important;
+}
+
+h2,
+h3,
+h4 {
+    color: var(--text);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.metric-box,
+.result-box,
+.score-box {
+    background: white;
+    color: var(--text);
+    border-radius: 12px;
+}
+
+/* =========================
+   NUMBERS
+========================= */
+
+.metric-box h1,
+.score-box h1,
+.result-box h2 {
+    color: var(--text) !important;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.predict-btn,
+.btn-primary,
+.save-btn,
+.download-btn,
+.action-btn {
+    background: #475569;
+    color: white;
+    border: none;
+}
+
+.predict-btn:hover,
+.btn-primary:hover,
+.save-btn:hover,
+.download-btn:hover,
+.action-btn:hover {
+    background: #334155;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select {
+    border: 1px solid #cbd5e1;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--blue);
+    outline: none;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark-mode {
+    background: #0f172a;
+    color: white;
+}
+
+.dark-mode .card,
+.dark-mode .metric-box,
+.dark-mode .result-box,
+.dark-mode .score-box {
+    background: #1e293b;
+    color: white;
+}
+
+.dark-mode input,
+.dark-mode select {
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+}
+.dark-mode{
+    background:#0f172a !important;
+    color:white !important;
+}
+
+.dark-mode .navbar,
+.dark-mode .card,
+.dark-mode .summary,
+.dark-mode .score-box,
+.dark-mode .result-box,
+.dark-mode .disclaimer{
+    background:#1e293b !important;
+    color:white !important;
+}
+
+.dark-mode table td{
+    color:white !important;
+}
+
+.dark-mode .section-title,
+.dark-mode .header h1,
+.dark-mode .logo{
+    color:#60a5fa !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+    }
+}

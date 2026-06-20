@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EndoPredict AI</title>
+
+    <link rel="stylesheet" href="/static/global.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:"Segoe UI",sans-serif;
+        }
+
+        body{
+            background:#f1f5f9;
+            color:#0f172a;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar{
+            position:fixed;
+            left:0;
+            top:0;
+            width:230px;
+            height:100vh;
+            background:white;
+            padding:25px 18px;
+            border-right:1px solid #e2e8f0;
+            box-shadow:0 0 12px rgba(0,0,0,0.05);
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:700;
+            color:#2563eb;
+            text-align:center;
+            margin-bottom:35px;
+        }
+
+        .sidebar ul{
+            list-style:none;
+        }
+
+        .sidebar ul li{
+            padding:14px;
+            margin-bottom:12px;
+            border-radius:12px;
+            background:#f8fafc;
+            cursor:pointer;
+            transition:0.3s;
+            border:1px solid #e2e8f0;
+            font-size:15px;
+            font-weight:500;
+        }
+
+        .sidebar ul li:hover{
+            background:#2563eb;
+            color:white;
+        }
+
+        /* MAIN */
+
+        .container{
+            margin-left:250px;
+            padding:35px;
+        }
+
+        .main-title{
+            font-size:48px;
+            font-weight:700;
+            margin-bottom:10px;
+            color:#0f172a;
+        }
+
+        .sub-title{
+            color:#64748b;
+            font-size:18px;
+            margin-bottom:35px;
+        }
+
+        /* METRIC BOXES */
+
+        .metrics{
+            display:flex;
+            gap:18px;
+            flex-wrap:nowrap;
+            margin-bottom:35px;
+        }
+
+        .metric-box{
+            flex:1;
+            background:white;
+            border-radius:20px;
+            padding:25px;
+            text-align:center;
+            box-shadow:0 4px 15px rgba(0,0,0,0.05);
+            border:1px solid #e2e8f0;
+            min-width:180px;
+        }
+
+        .metric-box h3{
+            font-size:16px;
+            color:#64748b;
+            margin-bottom:14px;
+        }
+
+        .metric-box h1{
+            font-size:46px;
+            color:#2563eb;
+            font-weight:700;
+        }
+
+        /* FORM */
+
+        .form-container{
+            background:white;
+            padding:30px;
+            border-radius:22px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .form-title{
+            font-size:28px;
+            margin-bottom:25px;
+            color:#0f172a;
+        }
+
+        .form-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+
+        .input-box{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .input-box label{
+            margin-bottom:8px;
+            font-size:14px;
+            font-weight:600;
+            color:#334155;
+        }
+
+        .input-box input,
+        .input-box select{
+            padding:13px;
+            border:1px solid #cbd5e1;
+            border-radius:12px;
+            font-size:14px;
+            outline:none;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus{
+            border-color:#2563eb;
+        }
+
+        .full-width{
+            grid-column:1/3;
+        }
+
+        .predict-btn{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:14px;
+            background:#2563eb;
+            color:white;
+            font-size:17px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .predict-btn:hover{
+            background:#1d4ed8;
+        }
+
+        .loading{
+            display:none;
+            text-align:center;
+            margin-top:20px;
+            color:#2563eb;
+            font-weight:600;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:1100px){
+
+            .metrics{
+                flex-wrap:wrap;
+            }
+
+            .metric-box{
+                min-width:220px;
+            }
+        }
+
+        @media(max-width:900px){
+
+            .sidebar{
+                position:relative;
+                width:100%;
+                height:auto;
+            }
+
+            .container{
+                margin-left:0;
+            }
+
+            .form-grid{
+                grid-template-columns:1fr;
+            }
+
+            .full-width{
+                grid-column:1;
+            }
+
+            .main-title{
+                font-size:36px;
+            }
+
+            .metrics{
+                flex-direction:column;
+            }
+        }
+        /* DARK MODE */
+
+.dark-mode{
+    background:#0f172a;
+    color:white;
+}
+
+.dark-mode .sidebar{
+    background:#1e293b;
+    border-right:1px solid #334155;
+}
+
+.dark-mode .container{
+    background:#0f172a;
+}
+
+.dark-mode .metric-box,
+.dark-mode .form-container{
+    background:#1e293b;
+    color:white;
+}
+
+.dark-mode .main-title,
+.dark-mode .form-title,
+.dark-mode label{
+    color:white;
+}
+
+.dark-mode input,
+.dark-mode select{
+    background:#0f172a;
+    color:white;
+    border:1px solid #334155;
+}
+
+.dark-mode .sub-title{
+    color:#cbd5e1;
+}
+
+.dark-mode .sidebar ul li{
+    background:#334155;
+    color:white;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+   <div class="sidebar">
+
+    <div class="logo" data-i18n="endopredict">
+        EndoPredict AI
+    </div>
+
+    <ul>
+
+        <li onclick="window.location.href='/dashboard'" data-i18n="dashboard">
+            🏠 Dashboard
+        </li>
+
+        <li onclick="window.location.href='/'" data-i18n="prediction">
+            🩺 Prediction
+        </li>
+
+        <li onclick="window.location.href='/analytics'" data-i18n="analytics">
+            📊 Analytics
+        </li>
+
+        <li onclick="window.location.href='/reports'" data-i18n="reports">
+            📁 Reports
+        </li>
+
+        <li onclick="window.location.href='/settings'" data-i18n="settings">
+            ⚙ Settings
+        </li>
+
+    </ul>
+
+</div>
+
+    <!-- MAIN -->
+
+    <div class="container">
+
+        <h1 class="main-title" data-i18n="prediction_system">
+            Endometriosis Prediction System
+        </h1>
+
+        <p class="sub-title" data-i18n="clinical_decision_support">
+            AI-assisted clinical decision support dashboard
+        </p>
+
+        <!-- METRICS -->
+
+        <div class="metrics">
+
+            <div class="metric-box">
+
+                <h3>Accuracy</h3>
+
+                <h1>99%</h1>
+
+            </div>
+
+            <div class="metric-box">
+
+                <h3>Precision</h3>
+
+                <h1>98%</h1>
+
+            </div>
+
+            <div class="metric-box">
+
+                <h3>Recall</h3>
+
+                <h1>97%</h1>
+
+            </div>
+
+            <div class="metric-box">
+
+                <h3>F1-Score</h3>
+
+                <h1>98%</h1>
+
+            </div>
+
+        </div>
+
+        <!-- FORM -->
+
+        <div class="form-container">
+
+            <h2 class="form-title">
+                Patient Information
+            </h2>
+
+            <form id="predictionForm">
+
+                <div class="form-grid">
+
+                    <div class="input-box">
+
+                        <label>Age</label>
+
+                        <input type="number" name="Age" required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Menstrual Irregularity</label>
+
+                        <select name="Menstrual_Irregularity">
+
+                            <option value="1">Yes</option>
+
+                            <option value="0">No</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Chronic Pain Level</label>
+
+                        <input type="number"
+                               name="Chronic_Pain_Level"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Hormone Level Abnormality</label>
+
+                        <select name="Hormone_Level_Abnormality">
+
+                            <option value="1">Yes</option>
+
+                            <option value="0">No</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Infertility</label>
+
+                        <select name="Infertility">
+
+                            <option value="1">Yes</option>
+
+                            <option value="0">No</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>BMI</label>
+
+                        <input type="number"
+                               step="0.1"
+                               name="BMI"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Height</label>
+
+                        <input type="number"
+                               name="Height"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Weight</label>
+
+                        <input type="number"
+                               name="Weight"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Blood Pressure Systolic</label>
+
+                        <input type="number"
+                               name="Blood_Pressure_Systolic"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Blood Pressure Diastolic</label>
+
+                        <input type="number"
+                               name="Blood_Pressure_Diastolic"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Estrogen Level</label>
+
+                        <input type="number"
+                               step="0.1"
+                               name="Estrogen_Level"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Progesterone Level</label>
+
+                        <input type="number"
+                               step="0.1"
+                               name="Progesterone_Level"
+                               required>
+
+                    </div>
+
+                    <div class="input-box full-width">
+
+                        <label>Upload Scan Image</label>
+
+                        <input type="file"
+                               name="image"
+                               accept="image/*">
+
+                    </div>
+
+                    <div class="full-width">
+
+                        <button type="submit"
+                                class="predict-btn">
+
+                            Predict Disease
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+            <div class="loading"
+                 id="loading">
+
+                Predicting Disease...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        const form =
+            document.getElementById(
+                "predictionForm"
+            );
+
+        form.addEventListener(
+            "submit",
+            async (e) => {
+
+            e.preventDefault();
+
+            document.getElementById(
+                "loading"
+            ).style.display = "block";
+
+            const formData =
+                new FormData(form);
+
+            try{
+
+                const response =
+                    await fetch(
+                    "http://127.0.0.1:5000/api/predict",
+                    {
+                        method:"POST",
+                        body:formData
+                    });
+
+                const data =
+                    await response.json();
+
+                document.getElementById(
+                    "loading"
+                ).style.display = "none";
+
+                console.log(data);
+
+                if(
+                    !response.ok
+                    || !data.success
+                ){
+
+                    alert(
+                        data.error
+                        || "Prediction Failed"
+                    );
+
+                    return;
+                }
+
+                // SAVE RESULT
+
+                localStorage.setItem(
+                    "predictionData",
+                    JSON.stringify({
+
+                        prediction_label:
+                        data.prediction_label,
+
+                        probability:
+                        data.probability,
+
+                        risk_level:
+                        data.risk_level,
+
+                        patient_data:{
+
+                            Age:
+                            formData.get("Age"),
+
+                            BMI:
+                            formData.get("BMI"),
+
+                            Chronic_Pain_Level:
+                            formData.get(
+                                "Chronic_Pain_Level"
+                            ),
+
+                            Estrogen_Level:
+                            formData.get(
+                                "Estrogen_Level"
+                            ),
+
+                            Infertility:
+                            formData.get(
+                                "Infertility"
+                            )
+
+                        }
+
+                    })
+                );
+
+                // REDIRECT
+
+                window.location.href =
+                    "/result";
+
+            }
+
+            catch(error){
+
+                document.getElementById(
+                    "loading"
+                ).style.display = "none";
+
+                console.log(error);
+
+                alert(
+                    "Server not reachable"
+                );
+            }
+
+        });
+
+    </script>
+
+    <script src="/static/global.js"></script>
+
+<script>
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    initializeGlobalSettings();
+
+    // Apply Dark Mode globally
+    if(localStorage.getItem("darkMode") === "true"){
+        document.body.classList.add("dark-mode");
+    }
+
+    // Apply saved language
+    const language =
+        localStorage.getItem("preferredLanguage") || "en";
+
+    translatePage(language);
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+// Global Translations
+const translations = {
+    en: {
+        appearance: 'Appearance',
+toggle_dark_mode: 'Toggle Dark Mode',
+prediction_settings: 'Prediction Settings',
+reset_prediction_history: 'Reset Prediction History',
+        dashboard: 'Dashboard',
+        prediction: 'Prediction',
+        analytics: 'Analytics',
+        reports: 'Reports',
+        settings: 'Settings',
+        endopredict: 'EndoPredict AI',
+        system_overview: 'System overview and key metrics',
+        system_performance: 'System Performance',
+        model_status: 'Model Status',
+        last_updated: 'Last Updated',
+        precision_score: 'Precision Score',
+        recall_score: 'Recall Score',
+        api_status: 'API Status',
+        active_running: '✅ Active & Running',
+        operational: '✅ Operational',
+        patient_information: 'Patient Information',
+        age: 'Age',
+        menstrual_irregularity: 'Menstrual Irregularity',
+        chronic_pain: 'Chronic Pain Level',
+        hormone_abnormality: 'Hormone Level Abnormality',
+        infertility: 'Infertility',
+        bmi: 'BMI',
+        height: 'Height',
+        weight: 'Weight',
+        blood_pressure_systolic: 'Blood Pressure Systolic',
+        blood_pressure_diastolic: 'Blood Pressure Diastolic',
+        estrogen_level: 'Estrogen Level',
+        progesterone_level: 'Progesterone Level',
+        upload_scan: 'Upload Scan Image',
+        predict_disease: 'Predict Disease',
+        accuracy: 'Accuracy',
+        precision: 'Precision',
+        recall: 'Recall',
+        f1_score: 'F1-Score',
+        success_rate: 'Success Rate',
+        yes: 'Yes',
+        no: 'No',
+        high: 'High',
+        moderate: 'Moderate',
+        low: 'Low',
+        data_driven: 'Data-driven insights and performance metrics',
+        accuracy_trend: 'Accuracy Trend Over Time',
+        precision_vs_recall: 'Precision vs Recall Performance',
+        f1_performance: 'F1-Score Performance',
+        patient_predictions: 'Patient predictions and diagnostic reports',
+        download_all: 'Download All Reports',
+        no_reports: 'No reports available. Make a prediction to generate reports.',
+        report_id: 'Report ID',
+        prediction: 'Prediction',
+        confidence: 'Confidence',
+        risk_level: 'Risk Level',
+        date: 'Date',
+        status: 'Status',
+        completed: '✓ Completed',
+        dark_mode: 'Dark Mode',
+        theme_color: 'Theme Color',
+        system_info: 'System Information',
+        backend_status: 'Backend Status',
+        ai_accuracy: 'AI Accuracy',
+        model_version: 'Model Version',
+        language: 'Language',
+        select_language: 'Select Language',
+        save_settings: 'Save Settings',
+        blue: 'Blue',
+        purple: 'Purple',
+        green: 'Green',
+        red: 'Red',
+        light_mode: 'Light Mode'
+        
+    },
+    te: {
+        appearance: 'రూపం',
+toggle_dark_mode: 'డార్క్ మోడ్ మార్చు',
+prediction_settings: 'అంచనా సెట్టింగ్‌లు',
+reset_prediction_history: 'అంచనా చరిత్రను తొలగించు',
+        dashboard: 'డ్యాష్‌బోర్డ్',
+        prediction: 'ఊహ',
+        analytics: 'విశ్లేషణ',
+        reports: 'నివేదికలు',
+        settings: 'సెట్టింగ్‌లు',
+        endopredict: 'ఎండోప్రెడిక్ట్ AI',
+        system_overview: 'సిస్టమ్ సమీక్ష మరియు కీ మెట్రిక్‌లు',
+        system_performance: 'సిస్టమ్ పనితీరు',
+        model_status: 'మోడల్ స్థితి',
+        last_updated: 'చివరిసారి అపడేట్ చేయబడింది',
+        precision_score: 'ఖచ్చితత్వ స్కోర్',
+        recall_score: 'రీకాల్ స్కోర్',
+        api_status: 'API స్థితి',
+        active_running: '✅ చేతనమైన & నడుస్తున్న',
+        operational: '✅ కార్యకరమైన',
+        patient_information: 'రోగి సమాచారం',
+        age: 'వయస్సు',
+        menstrual_irregularity: 'మెన్స్ట్రూయల్ అక్రమ',
+        chronic_pain: 'దీర్ఘకాల నొప్పి స్థాయి',
+        hormone_abnormality: 'హార్మోన్ స్థాయి అసంగతత',
+        infertility: 'సంతానహీనత',
+        bmi: 'BMI',
+        height: 'ఎత్తు',
+        weight: 'బరువు',
+        blood_pressure_systolic: 'రక్త పీడన సిస్టోలిక్',
+        blood_pressure_diastolic: 'రక్త పీడన డయాస్టోలిక్',
+        estrogen_level: 'ఎస్ట్రోజెన్ స్థాయి',
+        progesterone_level: 'ప్రోజెస్టెరాన్ స్థాయి',
+        upload_scan: 'స్కాన్ చిత్రం అప్‌లోడ్ చేయండి',
+        predict_disease: 'వ్యాధి అంచనా',
+        accuracy: 'ఖచ్చితత్వం',
+        precision: 'ఖచ్చితత్వం',
+        recall: 'రీకాల్',
+        f1_score: 'F1-స్కోర్',
+        success_rate: 'విజయ రేటు',
+        yes: 'అవును',
+        no: 'లేదు',
+        high: 'అధిక',
+        moderate: 'మధ్యస్థ',
+        low: 'తక్కువ',
+        data_driven: 'డేటా-ఆధారిత అంతర్దృష్టి మరియు పనితీరు మెట్రిక్‌లు',
+        accuracy_trend: 'సమయం పై ఖచ్చితత్వ ట్రెండ్',
+        precision_vs_recall: 'ఖచ్చితత్వ vs రీకాల్ పనితీరు',
+        f1_performance: 'F1-స్కోర్ పనితీరు',
+        patient_predictions: 'రోగి ఊహ మరియు రోగ నిర్ధారణ నివేదికలు',
+        download_all: 'అన్ని నివేదికలను డౌన్‌లోడ్ చేయండి',
+        no_reports: 'నివేదికలు లేవు. నివేదికలను ఉత్పత్తి చేయడానికి అంచనా చేయండి.',
+        report_id: 'నివేదిక ID',
+        prediction: 'ఊహ',
+        confidence: 'విశ్వాసం',
+        risk_level: 'ప్రమాద స్థాయి',
+        date: 'తేదీ',
+        status: 'స్థితి',
+        completed: '✓ పూర్తయిన',
+        dark_mode: 'ఙ్యమ్ మోడ్',
+        theme_color: 'థీమ్ రంగు',
+        system_info: 'సిస్టమ్ సమాచారం',
+        backend_status: 'బ్యాకెండ్ స్థితి',
+        ai_accuracy: 'AI ఖచ్చితత్వం',
+        model_version: 'మోడల్ సంస్కరణ',
+        language: 'భాష',
+        select_language: 'భాష ఎంచుకోండి',
+        save_settings: 'సెట్టింగ్‌లను సేవ్ చేయండి',
+        blue: 'నీలం',
+        purple: 'ఊదా',
+        green: 'సవరణ',
+        red: 'ఎరుపు',
+        light_mode: 'లైట్ మోడ్'
+    },
+    hi: {
+        appearance: 'दिखावट',
+toggle_dark_mode: 'डार्क मोड बदलें',
+prediction_settings: 'पूर्वानुमान सेटिंग्स',
+reset_prediction_history: 'पूर्वानुमान इतिहास हटाएँ',
+        dashboard: 'डैशबोर्ड',
+        prediction: 'पूर्वानुमान',
+        analytics: 'विश्लेषण',
+        reports: 'रिपोर्ट',
+        settings: 'सेटिंग्स',
+        endopredict: 'एंडोप्रेडिक्ट एआई',
+        system_overview: 'सिस्टम अवलोकन और मुख्य मेट्रिक्स',
+        system_performance: 'सिस्टम प्रदर्शन',
+        model_status: 'मॉडल स्थिति',
+        last_updated: 'अंतिम अपडेट',
+        precision_score: 'सटीकता स्कोर',
+        recall_score: 'याद करें स्कोर',
+        api_status: 'एपीआई स्थिति',
+        active_running: '✅ सक्रिय और चल रहा है',
+        operational: '✅ परिचालन',
+        patient_information: 'रोगी की जानकारी',
+        age: 'आयु',
+        menstrual_irregularity: 'मासिक धर्म की अनियमितता',
+        chronic_pain: 'दीर्घकालीन दर्द स्तर',
+        hormone_abnormality: 'हार्मोन स्तर असामान्यता',
+        infertility: 'बांझपन',
+        bmi: 'बीएमआई',
+        height: 'ऊंचाई',
+        weight: 'वजन',
+        blood_pressure_systolic: 'रक्तचाप सिस्टोलिक',
+        blood_pressure_diastolic: 'रक्तचाप डायास्टोलिक',
+        estrogen_level: 'एस्ट्रोजन स्तर',
+        progesterone_level: 'प्रोजेस्टेरोन स्तर',
+        upload_scan: 'स्कैन छवि अपलोड करें',
+        predict_disease: 'रोग की भविष्यवाणी करें',
+        accuracy: 'सटीकता',
+        precision: 'सटीकता',
+        recall: 'याद करें',
+        f1_score: 'F1-स्कोर',
+        success_rate: 'सफलता दर',
+        yes: 'हाँ',
+        no: 'नहीं',
+        high: 'उच्च',
+        moderate: 'मध्यम',
+        low: 'कम',
+        data_driven: 'डेटा-संचालित अंतर्दृष्टि और प्रदर्शन मेट्रिक्स',
+        accuracy_trend: 'समय के साथ सटीकता प्रवृत्ति',
+        precision_vs_recall: 'सटीकता बनाम रिकॉल प्रदर्शन',
+        f1_performance: 'F1-स्कोर प्रदर्शन',
+        patient_predictions: 'रोगी पूर्वानुमान और निदान रिपोर्ट',
+        download_all: 'सभी रिपोर्ट डाउनलोड करें',
+        no_reports: 'कोई रिपोर्ट उपलब्ध नहीं। रिपोर्ट बनाने के लिए भविष्यवाणी करें।',
+        report_id: 'रिपोर्ट आईडी',
+        prediction: 'पूर्वानुमान',
+        confidence: 'आत्मविश्वास',
+        risk_level: 'जोखिम स्तर',
+        date: 'तारीख',
+        status: 'स्थिति',
+        completed: '✓ पूर्ण',
+        dark_mode: 'डार्क मोड',
+        theme_color: 'थीम रंग',
+        system_info: 'सिस्टम जानकारी',
+        backend_status: 'बैकएंड स्थिति',
+        ai_accuracy: 'एआई सटीकता',
+        model_version: 'मॉडल संस्करण',
+        language: 'भाषा',
+        select_language: 'भाषा चुनें',
+        save_settings: 'सेटिंग्स सहेजें',
+        blue: 'नीला',
+        purple: 'बैंगनी',
+        green: 'हरा',
+        red: 'लाल',
+        light_mode: 'लाइट मोड'
+    }
+};
+
+// Initialize theme and language on all pages
+function initializeGlobalSettings() {
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    const savedColor = localStorage.getItem('themeColor') || 'blue';
+    
+    // Apply theme
+    document.body.className = `theme-${savedColor}`;
+    
+    // Translate page
+    translatePage(savedLanguage);
+}
+
+// Translate page content
+function translatePage(lang) {
+    const trans = translations[lang];
+    if (!trans) return;
+    
+    // Translate all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (trans[key]) {
+            element.innerText = trans[key];
+        }
+    });
+}
+
+// Change theme globally
+function changeTheme(color) {
+    document.body.className = `theme-${color}`;
+    localStorage.setItem('themeColor', color);
+}
+
+// Change language globally
+function changeLanguage(lang) {
+    translatePage(lang);
+    localStorage.setItem('preferredLanguage', lang);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeGlobalSettings);
